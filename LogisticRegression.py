@@ -121,8 +121,8 @@ class LogisticRgression():
         return res
 
 if __name__ == '__main__':
-    LR = LogisticRgression(fpath='/Users/fujingnan/PycharmProjects/Statistical-Learning-Method_Code/transMnist/Mnist/mnist_train.csv')
+    LR = LogisticRgression(fpath='')
     w = LR.train()
     LR = LogisticRgression(
-        fpath='/Users/fujingnan/PycharmProjects/Statistical-Learning-Method_Code/transMnist/Mnist/mnist_test.csv')
+        fpath='')
     LR.test(w)

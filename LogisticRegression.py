@@ -63,6 +63,7 @@ class LogisticRgression():
         """
         print('load data ...')
         traindata, labels = self.load_data('train')
+        # 初始化矩阵，这里矩阵初始化用的是均匀分布，也可以用全0，但是效果欠佳；
         w = torch.nn.init.uniform_(torch.Tensor(1, traindata.size(1)), a=0., b=1.)
         print('start train ...')
         for ep in tqdm(range(self.epoch)):

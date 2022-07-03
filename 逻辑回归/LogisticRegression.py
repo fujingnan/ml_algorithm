@@ -89,7 +89,6 @@ class LogisticRgression():
                 res.append(0)
         pn, nn = 0, 0
         ppred_d, npred_d = 0, 0
-        t = Counter(labels)
         prec_d, nrec_d = dict(Counter(labels))[1], dict(Counter(labels))[0]
         for i in range(len(res)):
             if res[i] == labels[i]:

@@ -82,6 +82,7 @@ class FB:
         return P
 
 if __name__ == '__main__':
+    # 课本例子10.2
     pi = [0.2, 0.4, 0.4]
     a = np.array([
         [0.5, 0.2, 0.3],

@@ -14,8 +14,8 @@ class Baum_Welch:
 
     def gamma(self, t, i):
         fb = FB(pi=self.Pi, A=self.A, B=self.B, V=self.V)
-        self.alpha = FB.forward(self.O)
-        self.beta = FB.backword(self.O)
+        self.alpha = fb.forward(self.O)
+        self.beta = fb.backward(self.O)
         numerator = self.alpha[t][i] * self.beta[t][i]
         denuminator = 0.
 

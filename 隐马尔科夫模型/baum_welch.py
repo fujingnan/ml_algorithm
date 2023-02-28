@@ -27,12 +27,12 @@ class Baum_Welch:
         self.B = np.random.dirichlet(np.ones(M), size=N)  # 观测概率矩阵
         self.pi = np.array(np.random.dirichlet(np.ones(N), size=1))[0]  # 初始状态概率矩阵
         self.V = V # 所有可能的观测
-        self.N = N # 所有可能的状态长度
-        self.M = M # 所有可能的观测长度
+        self.N = N # 所有可能的状态值
+        self.M = M # 所有可能的观测值
 
     def forward(self):
         """
-        前向算法
+        前向算法，Baum welch算法需要用到
         :param O: 已知的观测序列
         :return: alpha_{i}
         """
@@ -52,7 +52,7 @@ class Baum_Welch:
 
     def backward(self):
         """
-        后向算法
+        后向算法，Baum welch算法需要用到
         :param O: 已知的观测序列
         :return: beta_{i}
         """
@@ -163,6 +163,7 @@ if __name__ == '__main__':
     bm = Baum_Welch(N=3, M=2, V=['红', '白'])
     O = ['红', '白', '红']
     res = bm.train(O, 3)
-    print(res.pi)
-    print(res.A)
-    print(res.B)
+    print('π：', res.pi)
+    print('A：', res.A)
+    print('B：', res.B)
+    print(res.pi.shape)

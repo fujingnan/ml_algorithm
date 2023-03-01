@@ -1,14 +1,12 @@
-from baum_welch import Baum_Welch
 import numpy as np
-from LAC import LAC
 
-lac = LAC(mode='lac')
 
 class AttrDict(dict):
     # 一个小trick，将结果返回成一个字典格式
     def __init__(self, *args, **kwargs):
         super(AttrDict, self).__init__(*args, **kwargs)
         self.__dict__ = self
+
 
 def dataloader(datapath):
     with open(datapath, 'r') as reader:
@@ -83,7 +81,7 @@ class Model:
 
 
 class Viterbi:
-    def __init__(self, model:dict):
+    def __init__(self, model: dict):
         self.pi = model.pi
         self.A = model.A
         self.B = model.B
@@ -103,7 +101,7 @@ class Viterbi:
             psi_t = np.zeros((T, N))
             for t in range(T):
                 if not t:
-                    delta_t[t][:] = self.pi + self.B.T[:][ord(o[0])] # 由于log转换，所以原先的*变成+
+                    delta_t[t][:] = self.pi + self.B.T[:][ord(o[0])]  # 由于log转换，所以原先的*变成+
                     psi_t[t][:] = np.zeros((1, N))
                 else:
                     deltaTemp = delta_t[t - 1] + self.A.T
